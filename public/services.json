@@ -1,22 +1,22 @@
 [
     {
       "_id": "625af399cfc30988adebcf41",
-      "price": "$1,820.58",
-      "picture": "https://ibb.co/5R5swhQ",
+      "price": "$2,820.58",
+      "picture": "https://i.ibb.co/MCRPQkz/bussiness-law.jpg",
       "name": "Bussiness Law",
       "description": "Business law is a section of code that is involved in protecting liberties and rights, maintaining orders, resolving disputes, and establishing standards for the business concerns and their dealings with government agencies and individuals."
     },
     {
       "_id": "625af3997b030635157b6f9f",
       "price": "$2,546.44",
-      "picture": "https://ibb.co/SmSSqYT",
+      "picture": "https://i.ibb.co/wQttDGH/criminal-law.jpg",
       "name": "Criminal Law",
-      "description": "Criminal law, as distinguished from civil law, is a system of laws concerned with punishment of individuals who commit crimes. Thus, where in a civil case two individuals dispute their rights, a criminal prosecution involves the government deciding whether to punish an individual for either an act or an omission."
+      "description": "Criminal law, as distinguished from civil law, is a system of laws concerned with punishment of individuals who commit crimes. Thus, where in a civil case two individuals dispute their rights, a criminal prosecution involves the government deciding ..."
     },
     {
       "_id": "625af399786647370eda7f57",
       "price": "$2,795.94",
-      "picture": "https://ibb.co/X3j5257",
+      "picture": "https://i.ibb.co/Brc6z6y/property-law.jpg",
       "name": "Property Law",
       "description": "Property law is the area of law that governs the various forms of ownership in real property (land) and personal property. Property refers to legally protected claims to resources, such as land and personal property, including intellectual property."
     }
