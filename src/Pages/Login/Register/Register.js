@@ -3,14 +3,13 @@ import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import Loading from '../../Shared/Loading/Loading';
+import SocialLogin from '../SocialLogin/SocialLogin';
+
 
 const Register = () => {
     const [agree, setAgree] = useState(false)
     const navigate = useNavigate();
-
-    const navigateLogin = () => {
-        navigate('/login')
-    }
 
     const [
         createUserWithEmailAndPassword,
@@ -19,8 +18,21 @@ const Register = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
+    let errorElement;
+    if(error){
+        errorElement = <p className='text-danger'>Error: {error.message}</p>
+    }
+
+    if(loading){
+        return <Loading></Loading>
+    }
+
     if (user) {
         navigate('/home')
+    }
+
+    const navigateLogin = () => {
+        navigate('/login')
     }
 
     const handleRegister = event => {
@@ -58,6 +70,9 @@ const Register = () => {
                         type="checkbox"
                         label="Accept Helping Hand Terms and Condition" />
                 </Form.Group>
+
+                {errorElement}
+
                 <Button
                     disabled={!agree}
                     variant="primary"
@@ -65,7 +80,10 @@ const Register = () => {
                     Register
                 </Button>
             </Form>
+            
             <p className='mt-3'>Already have an account? <span onClick={navigateLogin} style={{ cursor: 'pointer' }} className='text-primary'>Please Login</span></p>
+
+            <SocialLogin></SocialLogin>
         </div>
     );
 };

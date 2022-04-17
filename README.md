@@ -1,16 +1,24 @@
 # Helping Hand
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live site of the project [Helping Hand](https://helping-hand-df968.web.app/).
 
 ## Porject Details
 
 * This website for a lawyer who is independent service provider.
-* In this website I use react router, react bootstrap, javascript, html, react toast, google firebase.
 * In website there is so many route and a route which is name is Checkout which is protected route, you cannot visit this route without login.
 * In this website I used firebase authentication system. You can register or login with email and password and you can also register with google and github sign in.
 * From the website you  can find varification email.
 * There is a blogs route where you can find some questions.
-* In the about route you can find information about the creator of this website.
+* In the about route you can find information about the maker of this website.
+
+
+### Framework and Libraries used in project
+
+* react
+* react router
+* react bootstrap
+* react toast
+* react firebase hooks
 
 
 ## Available Scripts

@@ -9,9 +9,12 @@ import { signOut } from 'firebase/auth';
 
 const Header = () => {
     const [user] = useAuthState(auth);
+    
     const handleLogout = () => {
         signOut(auth)
     }
+
+
     return (
         <Navbar collapseOnSelect expand="lg" sticky='top' bg="primary" variant="dark">
             <Container>
@@ -25,6 +28,7 @@ const Header = () => {
                         <Nav.Link href="/home#reviews">Client Feedback</Nav.Link>
 
                     </Nav>
+                    
                     <Nav>
                         <Nav.Link as={Link} to="/blogs">Blogs</Nav.Link>
                         <Nav.Link as={Link} to="/about">About</Nav.Link>
