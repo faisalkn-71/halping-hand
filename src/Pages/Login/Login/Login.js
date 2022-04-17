@@ -1,9 +1,10 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
-import { ToastContainer, toast } from 'react-toastify';
+import SocialLogin from '../SocialLogin/SocialLogin';
+
 
 
 const Login = () => {
@@ -19,7 +20,6 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
-    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
     let errorElement;
     if (error) {
@@ -40,16 +40,7 @@ const Login = () => {
 
     }
 
-    const handleResetPassword = async (event) => {
-        const email = event.target.email.value;
-        if (email) {
-            await sendPasswordResetEmail(email);
-            toast('Sent email');
-        }
-        else {
-            toast('Please enter your email adress.')
-        }
-    }
+    
     return (
         <div className='container w-50 mx-atuo mt-5'>
             <h2 className='text-primary text-center mb-3'>Please Login</h2>
@@ -64,18 +55,16 @@ const Login = () => {
 
                     <Form.Control type="password" name='password' placeholder="Password" required />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
+                
                 {errorElement}
                 <Button variant="primary" type="submit">
                     Login
                 </Button>
             </Form>
-            <p className='mt-3'><span onClick={handleResetPassword} style={{ cursor: 'pointer' }} className='text-primary'>Forget Password?</span></p>
+               
             <p className='mt-3'>New to Helping Hand? <span onClick={navigateRegister} style={{ cursor: 'pointer' }} className='text-primary'>Please Register</span></p>
-            <ToastContainer />
-
+            
+            <SocialLogin></SocialLogin>
         </div>
     );
 };
