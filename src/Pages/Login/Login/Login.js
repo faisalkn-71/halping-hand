@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 
 const Login = () => {
@@ -17,6 +17,8 @@ const Login = () => {
         error,
       ] =  useSignInWithEmailAndPassword(auth);
 
+      const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+
       let errorElement;
       if(error){
           errorElement = <p className='text-danger'>Error: {error.message}</p>
@@ -30,10 +32,16 @@ const Login = () => {
         event.preventDefault();
 
         const email = event.target.email.value;
-        const password = event.target.email.value;
+        const password = event.target.password.value;
 
         signInWithEmailAndPassword(email, password)
         
+    }
+
+    const handleResetPassword = async(event) => {
+        const email = event.target.email.value;
+        await sendPasswordResetEmail(email);
+        alert('Sent email');
     }
     return (
         <div className='container w-50 mx-atuo mt-5'>
@@ -52,10 +60,12 @@ const Login = () => {
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Check me out" />
                 </Form.Group>
+                {errorElement}
                 <Button variant="primary" type="submit">
                     Login
                 </Button>
             </Form>
+            <p className='mt-3'><span onClick={navigateRegister} style={{cursor: 'pointer'}} className='text-primary'>Forget Password?</span></p>
             <p className='mt-3'>New to Helping Hand? <span onClick={navigateRegister} style={{cursor: 'pointer'}} className='text-primary'>Please Register</span></p>
         </div>
     );
