@@ -10,8 +10,8 @@ const Reviews = () => {
         .then(data => setReviews(data))
     },[])
     return (
-        <div id='reviews' className='container-fluid'>
-            <h2 className='text-bold my-4'>Client Feedback</h2>
+        <div id='reviews' className='container-fluid my-5'>
+            <h2 className='text-bold my-4 bg-primary text-white text-center'>Client Feedback</h2>
             <div className='reviews-container'>
                 {
                     reviews.map(review => <Review
